@@ -23,10 +23,6 @@ function getHumanChoice() {
   return humanChoice;
 }
 
-//Assign to variables
-let cChoice = getComputerChoice();
-let hChoice = getHumanChoice();
-
 //Assign scores starting at 0
 let humanScore = 0;
 let computerScore = 0;
@@ -72,5 +68,25 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-playRound(hChoice, cChoice);
-  
+//Play game function loops 5 times
+function playGame () {
+  for (i = 0; i < 5; i++) {
+    let cChoice = getComputerChoice();
+    let hChoice = getHumanChoice();
+    playRound(hChoice, cChoice);
+  }
+
+  // Determine winner
+  if(humanScore > computerScore) {
+    alert("Congratulations! you won ");
+  }
+  else if (humanScore < computerScore){
+    alert("Better luck next time...you lost ");
+  }
+  else {
+    alert("Somehow- you tied!");
+  }
+}
+
+playGame();
+
