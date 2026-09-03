@@ -16,7 +16,6 @@ function getComputerChoice() {
   }
 }
 
-
 //Game Function
 
 //Play game function loops 5 times
@@ -35,7 +34,32 @@ function playGame() {
   let humanScore = 0;
   let computerScore = 0;
 
-  function playRound(computerChoice) {
+
+  // Get Human Choice
+  const rock = document.querySelector('#rock');
+  const paper = document.querySelector('#paper');
+  const scissors = document.querySelector('#scissors');
+
+  //Add event listeners for each button, when clicked
+  rock.addEventListener('click', () => {
+    humanChoice = "rock";
+    let computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+  });
+
+  paper.addEventListener('click', () => {
+    humanChoice = "paper";
+    let computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+  });
+
+  scissors.addEventListener('click', () => {
+    humanChoice = "scissors";
+    let computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+  });
+
+  function playRound(humanChoice, computerChoice) {
 
     //If user picks rock
     if (humanChoice.toLowerCase() === "rock") {
@@ -89,40 +113,9 @@ function playGame() {
       humanScore = 0;
       computerScore = 0;
     }
-    else if (computerScore == 5 && humanScore == 5) {
-      alert("Somehow- you tied!");
-      humanScore = 0;
-      computerScore = 0;
-    }
 
     updateScores(humanScore, computerScore);
   }
-
-  // Human choice logic
-  let humanChoice = "";
-
-  const rock = document.querySelector('#rock');
-  const paper = document.querySelector('#paper');
-  const scissors = document.querySelector('#scissors');
-
-  //Add event listeners for each button, when clicked
-  rock.addEventListener('click', () => {
-    humanChoice = "rock";
-    let cChoice = getComputerChoice();
-    playRound(cChoice);
-  });
-
-  paper.addEventListener('click', () => {
-    humanChoice = "paper";
-    let cChoice = getComputerChoice();
-    playRound(cChoice);
-  });
-
-  scissors.addEventListener('click', () => {
-    humanChoice = "scissors";
-    let cChoice = getComputerChoice();
-    playRound(cChoice);
-  });
 }
 
 playGame();
