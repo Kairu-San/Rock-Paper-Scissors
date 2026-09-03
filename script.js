@@ -23,6 +23,7 @@ function playGame() {
   // Score updates
   const updateHumanScore = document.querySelector('#humanScore');
   const updateComputerScore = document.querySelector('#computerScore');
+  const result = document.querySelector('#result');
 
   function updateScores(humanScore, computerScore) {
     updateHumanScore.textContent = humanScore;
@@ -64,52 +65,49 @@ function playGame() {
     //If user picks rock
     if (humanChoice.toLowerCase() === "rock") {
       if (computerChoice === "paper") {
-        console.log("You Lose! Paper beats Rock");
+        result.textContent = "You Lose! Paper beats Rock";
         computerScore++;
       } else if (computerChoice == "scissors") {
-        console.log("You Win! Rock beats Scissors");
+        result.textContent = "You Win! Rock beats Scissors";
         humanScore++;
       } else {
-        console.log("It's a tie!");
+        result.textContent = "It's a tie!";
       }
     }
 
     //If user picks paper
     else if (humanChoice.toLowerCase() === "paper") {
       if (computerChoice == "scissors") {
-        console.log("You Lose! Scissors beats Paper");
+        result.textContent = "You Lose! Scissors beats Paper";
         computerScore++;
       } else if (computerChoice == "rock") {
-        console.log("You Win! Paper beats Rock");
+        result.textContent = "You Win! Paper beats Rock";
         humanScore++;
       } else {
-        console.log("It's a tie!");
+        result.textContent = "It's a tie!";
       }
     }
     //If user picks scissors
     else {
       if (computerChoice == "rock") {
-        console.log("You Lose! Rock beats Scissors");
+        result.textContent = "You Lose! Rock beats Scissors";
         computerScore++;
       } else if (computerChoice == "paper") {
-        console.log("You Win! Scissors beats Paper");
+        result.textContent = "You Win! Scissors beats Paper";
         humanScore++;
       } else {
-        console.log("It's a tie!");
+        result.textContent = "It's a tie!";
       }
     }
 
-    console.log(humanScore);
-    console.log(computerScore);
-
     // Determine winner
     if (humanScore == 5) {
-      alert("Congratulations! you won ");
+      result.textContent= "Congratulations! you won";
       humanScore = 0;
       computerScore = 0;
     }
     else if (computerScore == 5) {
-      alert("Better luck next time...you lost ");
+      result.textContent= "Better luck next time...you lost";
       humanScore = 0;
       computerScore = 0;
     }
