@@ -21,6 +21,16 @@ function getComputerChoice() {
 
 //Play game function loops 5 times
 function playGame() {
+  // Score updates
+  const updateHumanScore = document.querySelector('#humanScore');
+  const updateComputerScore = document.querySelector('#computerScore');
+
+  function updateScores(humanScore, computerScore) {
+    updateHumanScore.textContent = humanScore;
+    updateComputerScore.textContent = computerScore;
+  }
+
+
   //Assign scores starting at 0
   let humanScore = 0;
   let computerScore = 0;
@@ -84,6 +94,8 @@ function playGame() {
       humanScore = 0;
       computerScore = 0;
     }
+
+    updateScores(humanScore, computerScore);
   }
 
   // Human choice logic
